@@ -23,6 +23,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import Image from "next/image";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -55,15 +56,14 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            Logo
-          </Text>
+          <Image
+            src="/images/logo.png"
+            width={50}
+            height={50}
+            alt="Kodepatra"
+          />
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex display={{ base: "none", md: "flex" }} ml={10} my={"auto"}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -79,7 +79,7 @@ export default function Navbar() {
             fontSize={"sm"}
             fontWeight={400}
             variant={"link"}
-            href={"#"}
+            href={"/signin"}
           >
             Sign In
           </Button>
@@ -90,7 +90,7 @@ export default function Navbar() {
             fontWeight={600}
             color={"white"}
             bg={"pink.400"}
-            href={"#"}
+            href={"/signup"}
             _hover={{
               bg: "pink.300",
             }}
