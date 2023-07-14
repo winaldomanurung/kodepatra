@@ -24,6 +24,7 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import Image from "next/image";
+import AuthButton from "./AuthButton";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -98,6 +99,7 @@ export default function Navbar() {
             Sign Up
           </Button>
         </Stack>
+        <AuthButton></AuthButton>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>

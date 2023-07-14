@@ -14,8 +14,10 @@ export async function POST(request: Request) {
     },
   });
 
+  console.log("lame");
+
   if (user && (await bcrypt.compare(body.password, user.password))) {
-    const { password, ...userWithoutPass } = user;
+    const { password, id, ...userWithoutPass } = user;
     return new Response(JSON.stringify(userWithoutPass));
   } else return new Response(JSON.stringify(null));
 }

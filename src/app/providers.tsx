@@ -3,11 +3,19 @@
 
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
+import { ReactNode } from "react";
+import { SessionProvider } from "next-auth/react";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+interface Props {
+  children: ReactNode;
+}
+
+export function Providers({ children }: Props) {
   return (
     <CacheProvider>
-      <ChakraProvider>{children}</ChakraProvider>
+      <ChakraProvider>
+        <SessionProvider>{children}</SessionProvider>
+      </ChakraProvider>
     </CacheProvider>
   );
 }
